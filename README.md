@@ -1,35 +1,75 @@
-# A Visual Authentication System with Graphical Passwords
-### During the registration process, users are prompted to upload nine distinct images and arrange them through a drag-and-drop interface to create a unique graphical password. Subsequently, the login mechanism necessitates arranging these images in the correct order. To enhance security, an account will be automatically blocked after four unsuccessful login attempts, thereby ensuring a secure environment while maintaining a user-friendly interface..
-# Features :-
-## • Image-based Authentication:
-### User will upload nine images during registration and then create a unique graphical password by arranging them in a particular order.
-## • Randomized images:
-### During login, the system presents the user's images in a randomized order, requiring the correct arrangement for authentication.
-## • Use of database:
-### Use of SQLite through SQLalchemy to store user , user images and their correct order for authentication.
-## • Security Measures:
-### Account gets blocked after four unsuccessful login attempts.
-## • User-Friendly Interface:
-### a well designed user friendly interface for the user to use in easily way.
-## Technology stack :-
-## o Python(for backend)
-## o Framework-: flask
-## o SQLite,SQLalchemy for database
-## o HTML,CSS,JavaScript (frontend)
-# How to Use:
-## Registration:
-### • enter email.
-### • Upload nine images.
-### • Arrange the images in a specific order.
-### • click on submit to save the user.
-## Login:
-### • Enter the registered email.
-### • Arrange the displayed images in the correct order to authenticate by drag and drop.
-## Account Security:
-### • Images are shown in random order and after every incorrect arrangement they get randomized.
-### • Account blocking after four consecutive unsuccessful login attempts.
-### • User can not acces dashoboard without getting authenticated.
-## Installation
-### • from form click on the link https://github.com/StarryStarter/A-Visual-Authentication-System-with-Graphical-Passwords
-### • Make sure to install python,flask and Flask_SQLAlchemy.
-### • Run app.py and go to http://localhost:5000.
+# Visual Auth System — Graphical Password Authentication
+
+A password-free authentication system where users log in by arranging images in the correct order instead of typing a password. Built with Python and Flask.
+
+---
+
+## How It Works
+
+Traditional passwords are vulnerable to keyloggers and shoulder-surfing. This system replaces them with a **drag-and-drop image sequence** that only the user knows.
+
+**Registration:**
+1. Upload 9 personal images
+2. Arrange them in a specific order to create your graphical password
+
+**Login:**
+1. Enter your registered email
+2. The 9 images are shown in a randomized order
+3. Drag and drop them back into your secret sequence to authenticate
+
+If the arrangement is wrong, the images are reshuffled. After **4 failed attempts**, the account is automatically blocked.
+
+---
+
+## Features
+
+- Image-based authentication (no text passwords)
+- Randomized image display on every login attempt to prevent pattern observation
+- Account lockout after 4 consecutive failures
+- Session protection: dashboard inaccessible without authentication
+- SQLite database for storing users, images, and sequence hashes
+
+---
+
+## Tech Stack
+
+| Layer | Technology |
+|---|---|
+| Backend | Python, Flask |
+| Database | SQLite via SQLAlchemy |
+| Frontend | HTML, CSS, JavaScript |
+
+---
+
+## Getting Started
+
+### 1. Clone the repository
+```bash
+git clone https://github.com/StarryStarter/visual-auth-system.git
+cd visual-auth-system
+```
+
+### 2. Install dependencies
+```bash
+pip install flask flask_sqlalchemy
+```
+
+### 3. Run the app
+```bash
+python app.py
+```
+
+Then open [http://localhost:5000](http://localhost:5000) in your browser.
+
+---
+
+## Security Considerations
+
+- Image sequences are stored as hashed values, not raw order data
+- Brute-force attempts are limited by account lockout
+- All routes check session validity before serving protected pages
+
+---
+
+## Topics
+`python` `flask` `authentication` `graphical-password` `security` `sqlite` `sqlalchemy` `web-security`
